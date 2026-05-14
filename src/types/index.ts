@@ -42,6 +42,8 @@ export interface Order {
   id: number
   userId: number
   userEmail: string
+  userName: string
+  userPhone: number
   totalPrice: number
   status: OrderStatus
   createdAt: string
