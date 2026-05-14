@@ -2,7 +2,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
 import { useCart } from '@/context/CartContext'
 import { Button } from '@/components/ui/button'
-import { ShoppingCart, LogOut, User } from 'lucide-react'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { ShoppingCart, LogOut, User, ChevronDown } from 'lucide-react'
 import { UserRole } from '@/types/UserRole'
 
 export default function Navbar() {
@@ -40,11 +46,27 @@ export default function Navbar() {
                 </Button>
               </Link>
               {user?.role === UserRole.ADMIN && (
-                <Link to="/admin/products">
-                  <Button variant="outline" size="sm">
-                    Admin
-                  </Button>
-                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="sm">
+                      Admin
+                      <ChevronDown size={14} />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem asChild>
+                      <Link to="/admin/products">Productos</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/admin/orders">Ordenes</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+              {user?.role === UserRole.CLIENT && (
+                <Button variant="outline" size="sm" onClick={() => navigate('/orders')}>
+                  Mis Órdenes
+                </Button>
               )}
               <Button variant="ghost" size="sm" onClick={handleLogout}>
                 <LogOut size={16} />
