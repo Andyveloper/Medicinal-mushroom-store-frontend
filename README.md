@@ -1,75 +1,78 @@
-# React + TypeScript + Vite
+# Medicinal Mushroom Store — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tienda en línea de hongos medicinales. SPA construida con React 19, TypeScript 6 y Vite 8.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + React Compiler habilitado
+- **TypeScript 6**
+- **Vite 8**
+- **Tailwind CSS v4**
+- **shadcn/ui** (Radix UI)
+- **React Router DOM v7**
+- **React Hook Form** + **Zod**
+- **Axios**
+- **Stripe** (pagos)
 
-## React Compiler
+## Requisitos
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Node.js 18+
+- pnpm
 
-Note: This will impact Vite dev & build performances.
+## Instalación
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Desarrollo
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm dev
 ```
+
+La app corre en `http://localhost:5173`. El backend debe estar en `http://localhost:8080`.
+
+## Build
+
+```bash
+pnpm build
+```
+
+## Linting
+
+```bash
+pnpm lint
+```
+
+## Estructura
+
+```
+src/
+├── components/ui/     # Componentes shadcn + Navbar
+├── context/           # AuthContext, CartContext
+├── pages/
+│   ├── AdminPages/    # AdminOrdersPage, AdminProductsPage
+│   └── ...            # CatalogPage, DetailPage, CartPage, CheckoutPage, OrdersPage, LoginPage, RegisterPage
+├── schemas/           # Validaciones Zod (auth, product)
+├── services/          # Clientes HTTP: api, auth, order, product, payment
+└── types/             # Tipos globales, OrderStatus, UserRole
+```
+
+## Rutas
+
+| Ruta | Acceso | Descripción |
+|---|---|---|
+| `/` | Público | Catálogo de productos |
+| `/products/:id` | Público | Detalle de producto |
+| `/login` | Público | Inicio de sesión |
+| `/register` | Público | Registro |
+| `/cart` | Público | Carrito |
+| `/orders` | Autenticado | Mis órdenes |
+| `/checkout/:orderId` | Autenticado | Pago con Stripe |
+| `/admin/products` | Admin | Gestión de productos |
+| `/admin/orders` | Admin | Gestión de órdenes |
+
+## Variables de entorno
+
+No se requiere `.env` por defecto. La URL base del API está definida en `src/services/api.ts` (`http://localhost:8080/api`).
