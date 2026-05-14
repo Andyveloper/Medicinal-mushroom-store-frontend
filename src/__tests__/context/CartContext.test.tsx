@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 import { CartProvider, useCart } from '@/context/CartContext'
 import type { Product } from '@/types'
@@ -77,9 +77,9 @@ describe('CartContext', () => {
 
   it('total y itemCount calculan correctamente con múltiples productos', () => {
     const { result } = renderHook(() => useCart(), { wrapper })
-    act(() => result.current.addItem(mockProduct))   // 25000 x 1
-    act(() => result.current.addItem(mockProduct))   // 25000 x 2
-    act(() => result.current.addItem(mockProduct2))  // 30000 x 1
+    act(() => result.current.addItem(mockProduct)) // 25000 x 1
+    act(() => result.current.addItem(mockProduct)) // 25000 x 2
+    act(() => result.current.addItem(mockProduct2)) // 30000 x 1
     expect(result.current.total).toBe(25000 * 2 + 30000)
     expect(result.current.itemCount).toBe(3)
   })
