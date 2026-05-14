@@ -9,6 +9,7 @@ import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
 import OrdersPage from './pages/OrdersPage'
 import AdminProductsPage from './pages/AdminPages/AdminProductsPage'
+import AdminOrdersPage from './pages/AdminPages/AdminOrdersPage'
 
 const App = () => {
   const { isAuthenticated } = useAuth()
@@ -30,7 +31,10 @@ const App = () => {
         <Route path="/checkout/:orderId" element={<CheckoutPage />} />
 
         <Route path="/admin/products" element={<AdminProductsPage />} />
-        <Route path="/admin/orders" element={<div>Admin Orders Page</div>} />
+        <Route
+          path="/admin/orders"
+          element={isAuthenticated ? <AdminOrdersPage /> : <Navigate to="/login" />}
+        />
       </Routes>
     </>
   )
