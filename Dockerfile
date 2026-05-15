@@ -4,6 +4,10 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
 RUN pnpm install --frozen-lockfile --ignore-scripts
 COPY . .
+ARG VITE_API_URL
+ARG VITE_STRIPE_PUBLIC_KEY
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_STRIPE_PUBLIC_KEY=$VITE_STRIPE_PUBLIC_KEY
 RUN pnpm run build
 
 FROM nginx:alpine
