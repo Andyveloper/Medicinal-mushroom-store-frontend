@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
 import { useCart } from '@/context/CartContext'
@@ -10,11 +11,19 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { ShoppingCart, LogOut, User, ChevronDown } from 'lucide-react'
 import { UserRole } from '@/types/UserRole'
+import { cn } from '@/lib/utils'
 
 export default function Navbar() {
   const { isAuthenticated, logout, user } = useAuth()
   const { itemCount } = useCart()
   const navigate = useNavigate()
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleLogout = () => {
     logout()
@@ -22,9 +31,16 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-background sticky top-0 z-50 border-b">
+    <nav
+      className={cn(
+        'sticky top-0 z-50 border-b transition-all duration-300',
+        scrolled
+          ? 'bg-background/95 shadow-md backdrop-blur-sm'
+          : 'bg-background shadow-none',
+      )}
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="text-xl font-bold">
+        <Link to="/" className="font-heading text-brand-green-dark text-xl font-bold tracking-tight">
           🍄 Setas Medicinales
         </Link>
 
@@ -39,7 +55,7 @@ export default function Navbar() {
                 <Button variant="outline" size="sm" className="relative">
                   <ShoppingCart size={16} />
                   {itemCount > 0 && (
-                    <span className="bg-primary text-primary-foreground absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full text-xs">
+                    <span className="bg-primary text-primary-foreground absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold">
                       {itemCount}
                     </span>
                   )}
