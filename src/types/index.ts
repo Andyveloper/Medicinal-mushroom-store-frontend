@@ -34,6 +34,7 @@ export interface OrderItem {
   id: number
   productId: number
   productName: string
+  imageUrl: string
   quantity: number
   unitPrice: number
 }

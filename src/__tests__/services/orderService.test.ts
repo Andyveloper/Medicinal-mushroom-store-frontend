@@ -18,7 +18,7 @@ const mockOrder: Order = {
   totalPrice: 50000,
   status: 'PENDING',
   createdAt: '2026-05-14T00:00:00Z',
-  items: [{ id: 1, productId: 1, productName: 'Reishi', quantity: 2, unitPrice: 25000 }],
+  items: [{ id: 1, productId: 1, productName: 'Reishi', imageUrl: '', quantity: 2, unitPrice: 25000 }],
 }
 
 beforeEach(() => {

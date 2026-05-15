@@ -67,11 +67,24 @@ export default function OrdersPage() {
                   day: 'numeric',
                 })}
               </p>
+
               <div className="flex flex-col gap-2">
                 {order.items.map((item) => (
-                  <div key={item.id} className="flex justify-between text-sm">
+                  <div
+                    key={item.id}
+                    className="flex justify-between border-b py-2 align-middle text-sm last:border-0"
+                  >
                     <span>
-                      {item.productName} x{item.quantity}
+                      <img
+                        src={item.imageUrl}
+                        alt={item.productName}
+                        className="h-24 w-24 rounded-2xl object-cover"
+                      />
+                    </span>
+                    <span className="flex items-center justify-center gap-2">
+                      <p>
+                        {item.productName} x{item.quantity}
+                      </p>
                     </span>
                     <span>${(item.unitPrice * item.quantity).toLocaleString('es-CO')}</span>
                   </div>

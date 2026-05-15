@@ -22,8 +22,8 @@ const mockOrders: Order[] = [
     status: 'PENDING',
     createdAt: '2024-01-15T10:00:00Z',
     items: [
-      { id: 1, productId: 1, productName: 'Reishi', quantity: 2, unitPrice: 25000 },
-      { id: 2, productId: 2, productName: 'Chaga', quantity: 1, unitPrice: 30000 },
+      { id: 1, productId: 1, productName: 'Reishi', imageUrl: '', quantity: 2, unitPrice: 25000 },
+      { id: 2, productId: 2, productName: 'Chaga', imageUrl: '', quantity: 1, unitPrice: 30000 },
     ],
   },
   {
@@ -35,7 +35,7 @@ const mockOrders: Order[] = [
     totalPrice: 30000,
     status: 'PAID',
     createdAt: '2024-01-10T10:00:00Z',
-    items: [{ id: 3, productId: 2, productName: 'Chaga', quantity: 1, unitPrice: 30000 }],
+    items: [{ id: 3, productId: 2, productName: 'Chaga', imageUrl: '', quantity: 1, unitPrice: 30000 }],
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const mockOrders: Order[] = [
     totalPrice: 25000,
     status: 'CANCELLED',
     createdAt: '2024-01-08T10:00:00Z',
-    items: [{ id: 4, productId: 1, productName: 'Reishi', quantity: 1, unitPrice: 25000 }],
+    items: [{ id: 4, productId: 1, productName: 'Reishi', imageUrl: '', quantity: 1, unitPrice: 25000 }],
   },
 ]
 

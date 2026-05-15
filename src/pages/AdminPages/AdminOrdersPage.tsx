@@ -58,8 +58,18 @@ export default function AdminOrdersPage() {
               </p>
               <div className="flex flex-col gap-2">
                 {order.items.map((item) => (
-                  <div key={item.id} className="flex justify-between text-sm">
-                    <span>
+                  <div
+                    key={item.id}
+                    className="flex justify-between border-b py-2 align-middle text-sm last:border-0"
+                  >
+                    <span key={item.id} className="flex items-center gap-2">
+                      <img
+                        src={item.imageUrl}
+                        alt={item.productName}
+                        className="h-24 w-24 rounded-2xl object-cover"
+                      />
+                    </span>
+                    <span className="flex items-center justify-around">
                       {item.productName} x{item.quantity}
                     </span>
                     <span>${(item.unitPrice * item.quantity).toLocaleString('es-CO')}</span>
