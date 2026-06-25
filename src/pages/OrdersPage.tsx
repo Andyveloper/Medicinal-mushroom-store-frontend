@@ -44,19 +44,21 @@ export default function OrdersPage() {
 
   if (orders.length === 0)
     return (
-      <div className="flex min-h-screen items-center justify-center">
-        <p className="text-muted-foreground">No tienes órdenes todavía</p>
+      <div className="flex min-h-screen flex-col items-center justify-center gap-2 px-4 text-center">
+        <p className="font-heading text-2xl font-extrabold tracking-tight">No tienes órdenes todavía</p>
+        <p className="text-muted-foreground">Cuando hagas tu primer pedido aparecerá aquí.</p>
       </div>
     )
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8">
-      <h1 className="mb-8 text-3xl font-bold">Mis Órdenes</h1>
+    <div className="mx-auto max-w-3xl px-4 py-12">
+      <span className="fungi-kicker text-sm text-magenta">Historial</span>
+      <h1 className="mb-8 mt-2 font-heading text-4xl font-extrabold tracking-tight">Mis Órdenes</h1>
       <div className="flex flex-col gap-4">
         {orders.map((order) => (
-          <Card key={order.id}>
+          <Card key={order.id} className="fungi-sticker shadow-none ring-0">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-base">Orden #{order.id}</CardTitle>
+              <CardTitle className="font-heading text-base font-bold">Orden #{order.id}</CardTitle>
               <Badge variant={statusColors[order.status]}>{statusLabels[order.status]}</Badge>
             </CardHeader>
             <CardContent>
@@ -91,12 +93,12 @@ export default function OrdersPage() {
                 ))}
               </div>
               <Separator className="my-3" />
-              <div className="flex justify-between font-bold">
-                <span>Total</span>
-                <span>${order.totalPrice.toLocaleString('es-CO')} COP</span>
+              <div className="flex items-center justify-between font-bold">
+                <span className="font-heading">Total</span>
+                <span className="text-magenta font-heading text-lg">${order.totalPrice.toLocaleString('es-CO')} COP</span>
               </div>
               {order.status === 'PENDING' && (
-                <Button size="sm" onClick={() => navigate(`/checkout/${order.id}`)}>
+                <Button size="sm" className="mt-4" onClick={() => navigate(`/checkout/${order.id}`)}>
                   Completar pago
                 </Button>
               )}

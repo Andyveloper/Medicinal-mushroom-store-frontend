@@ -39,18 +39,20 @@ export default function CartPage() {
 
   if (items.length === 0)
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4">
-        <p className="text-muted-foreground">Tu carrito está vacío</p>
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4 text-center">
+        <p className="font-heading text-2xl font-extrabold tracking-tight">Tu carrito está vacío</p>
+        <p className="text-muted-foreground">Aún no has agregado ningún hongo a tu drop.</p>
         <Button onClick={() => navigate('/')}>Ver productos</Button>
       </div>
     )
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-8">
-      <h1 className="mb-8 text-3xl font-bold">Tu Carrito</h1>
+    <div className="mx-auto max-w-2xl px-4 py-12">
+      <span className="fungi-kicker text-sm text-magenta">Tu pedido</span>
+      <h1 className="mb-8 mt-2 font-heading text-4xl font-extrabold tracking-tight">Tu Carrito</h1>
       <div className="flex flex-col gap-4">
         {items.map((item) => (
-          <Card key={item.product.id}>
+          <Card key={item.product.id} className="fungi-sticker shadow-none ring-0">
             <CardContent className="flex items-center gap-4 pt-4">
               {item.product.imageUrl && (
                 <img
@@ -95,8 +97,8 @@ export default function CartPage() {
       </div>
       <Separator className="my-6" />
       <div className="mb-6 flex items-center justify-between">
-        <span className="text-xl font-semibold">Total</span>
-        <span className="text-2xl font-bold">${total.toLocaleString('es-CO')} COP</span>
+        <span className="font-heading text-xl font-bold">Total</span>
+        <span className="text-magenta font-heading text-3xl font-extrabold">${total.toLocaleString('es-CO')} COP</span>
       </div>
       <Button className="w-full" size="lg" onClick={handleCheckout} disabled={loading}>
         {loading ? 'Procesando...' : 'Proceder al pago'}

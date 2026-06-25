@@ -72,10 +72,13 @@ export default function CheckoutPage() {
     )
 
   return (
-    <div className="mx-auto max-w-md px-4 py-8">
-      <Card>
+    <div className="mx-auto max-w-md px-4 py-12">
+      <Card className="fungi-sticker shadow-none ring-0">
         <CardHeader>
-          <CardTitle>Completar Pago</CardTitle>
+          <span className="fungi-kicker text-sm text-magenta">Pago seguro</span>
+          <CardTitle className="font-heading text-2xl font-extrabold tracking-tight">
+            Completar Pago
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {clientSecret && (
