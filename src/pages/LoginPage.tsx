@@ -36,10 +36,15 @@ export const LoginPage = () => {
   }
 
   return (
-    <div className="bg-background flex min-h-screen items-center justify-center">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl">Iniciar Sesión</CardTitle>
+    <div className="bg-ink fungi-dots flex min-h-screen items-center justify-center px-4 py-12">
+      <Card className="fungi-sticker w-full max-w-md bg-white shadow-none ring-0">
+        <CardHeader className="items-center text-center">
+          <Link to="/" aria-label="MR FUNGi — inicio">
+            <img src="/mr-fungi-logo.png" alt="MR FUNGi" className="mx-auto h-20 w-auto" />
+          </Link>
+          <CardTitle className="font-heading text-2xl font-extrabold tracking-tight">
+            Iniciar Sesión
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -74,9 +79,9 @@ export const LoginPage = () => {
             <Button type="submit" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? 'Iniciando...' : 'Iniciar Sesión'}
             </Button>
-            <p className="text-center text-sm">
+            <p className="text-center text-sm text-muted-foreground">
               ¿No tienes una cuenta?{' '}
-              <Link to="/register" className="text-blue-500 hover:underline">
+              <Link to="/register" className="text-magenta font-semibold hover:underline">
                 Regístrate aquí
               </Link>
             </p>

@@ -35,10 +35,15 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="bg-background flex min-h-screen items-center justify-center">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl">Crear Cuenta</CardTitle>
+    <div className="bg-ink fungi-dots flex min-h-screen items-center justify-center px-4 py-12">
+      <Card className="fungi-sticker w-full max-w-md bg-white shadow-none ring-0">
+        <CardHeader className="items-center text-center">
+          <Link to="/" aria-label="MR FUNGi — inicio">
+            <img src="/mr-fungi-logo.png" alt="MR FUNGi" className="mx-auto h-20 w-auto" />
+          </Link>
+          <CardTitle className="font-heading text-2xl font-extrabold tracking-tight">
+            Crear Cuenta
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -83,9 +88,9 @@ export default function RegisterPage() {
             <Button type="submit" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? 'Creando cuenta...' : 'Crear Cuenta'}
             </Button>
-            <p className="text-center text-sm">
+            <p className="text-center text-sm text-muted-foreground">
               ¿Ya tienes cuenta?{' '}
-              <Link to="/login" className="text-primary hover:underline">
+              <Link to="/login" className="text-magenta font-semibold hover:underline">
                 Inicia sesión
               </Link>
             </p>
