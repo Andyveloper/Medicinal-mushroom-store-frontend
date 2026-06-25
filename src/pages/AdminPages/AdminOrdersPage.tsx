@@ -36,13 +36,14 @@ export default function AdminOrdersPage() {
     )
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
-      <h1 className="mb-8 text-3xl font-bold">Gestión de Órdenes</h1>
+    <div className="mx-auto max-w-4xl px-4 py-12">
+      <span className="fungi-kicker text-sm text-magenta">Panel admin</span>
+      <h1 className="mb-8 mt-2 font-heading text-4xl font-extrabold tracking-tight">Gestión de Órdenes</h1>
       <div className="flex flex-col gap-4">
         {orders.map((order) => (
-          <Card key={order.id}>
+          <Card key={order.id} className="fungi-sticker shadow-none ring-0">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-base">Orden #{order.id}</CardTitle>
+              <CardTitle className="font-heading text-base font-bold">Orden #{order.id}</CardTitle>
               <Badge variant={statusColors[order.status]}>{statusLabels[order.status]}</Badge>
             </CardHeader>
             <CardContent>
@@ -78,8 +79,8 @@ export default function AdminOrdersPage() {
               </div>
               <Separator className="my-3" />
               <div className="flex justify-between font-bold">
-                <span>Total</span>
-                <span>${order.totalPrice.toLocaleString('es-CO')} COP</span>
+                <span className="font-heading">Total</span>
+                <span className="text-magenta font-heading text-lg">${order.totalPrice.toLocaleString('es-CO')} COP</span>
               </div>
             </CardContent>
           </Card>

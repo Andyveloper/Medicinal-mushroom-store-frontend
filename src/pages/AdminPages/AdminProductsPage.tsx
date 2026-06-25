@@ -74,9 +74,12 @@ export default function AdminProductsPage() {
     )
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
-      <div className="mb-8 flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Gestión de Productos</h1>
+    <div className="mx-auto max-w-4xl px-4 py-12">
+      <div className="mb-8 flex items-end justify-between gap-4">
+        <div>
+          <span className="fungi-kicker text-sm text-magenta">Panel admin</span>
+          <h1 className="mt-2 font-heading text-4xl font-extrabold tracking-tight">Gestión de Productos</h1>
+        </div>
         <Button onClick={() => setShowForm(!showForm)}>
           <Plus size={16} className="mr-2" />
           Nuevo Producto
@@ -84,7 +87,7 @@ export default function AdminProductsPage() {
       </div>
 
       {showForm && (
-        <Card className="mb-8">
+        <Card className="fungi-sticker mb-8 shadow-none ring-0">
           <CardContent className="pt-6">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -140,22 +143,25 @@ export default function AdminProductsPage() {
 
       <div className="flex flex-col gap-4">
         {products.map((product) => (
-          <Card key={product.id}>
+          <Card key={product.id} className="fungi-sticker shadow-none ring-0">
             <CardContent className="flex items-center gap-4 pt-4">
               {product.imageUrl && (
                 <img
                   src={product.imageUrl}
                   alt={product.name}
-                  className="h-16 w-16 rounded object-cover"
+                  className="h-16 w-16 rounded-lg border-2 border-ink object-cover"
                 />
               )}
               <div className="flex-1">
-                <p className="font-semibold">{product.name}</p>
-                <p className="text-muted-foreground text-sm">
+                <p className="font-heading font-bold">{product.name}</p>
+                <p className="text-magenta text-sm font-semibold">
                   ${product.price.toLocaleString('es-CO')} COP
                 </p>
               </div>
-              <Badge variant={product.stock > 0 ? 'default' : 'destructive'}>
+              <Badge
+                variant={product.stock > 0 ? 'secondary' : 'destructive'}
+                className="border-2 border-ink"
+              >
                 {product.stock} en stock
               </Badge>
               <Button variant="ghost" size="icon" onClick={() => handleDelete(product.id)}>
