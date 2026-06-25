@@ -8,24 +8,24 @@ const values = [
     name: 'Calidad',
     description:
       'Cada lote pasa por controles rigurosos antes de llegar a tus manos. Seleccionamos solo las mejores cepas para garantizar potencia y pureza en cada producto.',
-    color: 'text-amber-600',
-    bg: 'bg-amber-50',
+    color: 'text-white',
+    bg: 'bg-magenta',
   },
   {
     Icon: Leaf,
     name: 'Sostenibilidad',
     description:
       'Nuestros procesos de cultivo están diseñados para tener el menor impacto posible en el entorno. Sin pesticidas, sin químicos artificiales, sin compromisos con la naturaleza.',
-    color: 'text-emerald-600',
-    bg: 'bg-emerald-50',
+    color: 'text-ink',
+    bg: 'bg-mint',
   },
   {
     Icon: Shield,
     name: 'Transparencia',
     description:
       'Te contamos exactamente cómo cultivamos, procesamos y empacamos cada producto. Sin secretos — solo información clara para que tomes las mejores decisiones para tu salud.',
-    color: 'text-teal-600',
-    bg: 'bg-teal-50',
+    color: 'text-mint',
+    bg: 'bg-ink',
   },
 ]
 
@@ -48,20 +48,20 @@ export default function SobreNosotrosPage() {
             ref={missionRef}
             className={`grid grid-cols-1 gap-10 transition-all duration-700 ease-out md:grid-cols-2 ${missionInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
           >
-            <div className="rounded-2xl border bg-white p-8 shadow-sm">
-              <span className="text-brand-green mb-3 block text-sm font-semibold uppercase tracking-widest">
+            <div className="fungi-sticker rounded-2xl bg-white p-8">
+              <span className="fungi-kicker mb-3 block text-sm text-magenta">
                 Misión
               </span>
               <p className="text-muted-foreground leading-relaxed">
-                Somos una empresa colombiana dedicada al cultivo y distribución de hongos medicinales
-                de alta calidad. Creemos en el poder de la naturaleza respaldado por la ciencia, y
-                trabajamos cada día para ofrecerte productos que contribuyan a tu bienestar de forma
-                genuina y sostenible.
+                Somos una empresa colombiana dedicada al cultivo y distribución de hongos
+                medicinales de alta calidad. Creemos en el poder de la naturaleza respaldado por la
+                ciencia, y trabajamos cada día para ofrecerte productos que contribuyan a tu
+                bienestar de forma genuina y sostenible.
               </p>
             </div>
 
-            <div className="rounded-2xl border bg-white p-8 shadow-sm">
-              <span className="text-brand-green mb-3 block text-sm font-semibold uppercase tracking-widest">
+            <div className="fungi-sticker rounded-2xl bg-white p-8">
+              <span className="fungi-kicker mb-3 block text-sm text-magenta">
                 Visión
               </span>
               <p className="text-muted-foreground leading-relaxed">
@@ -83,10 +83,10 @@ export default function SobreNosotrosPage() {
             className={`transition-all duration-700 ease-out ${valuesInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
           >
             <div className="mb-12 text-center">
-              <span className="text-brand-green text-sm font-semibold uppercase tracking-widest">
+              <span className="fungi-kicker text-sm text-magenta">
                 Lo que nos guía
               </span>
-              <h2 className="font-heading text-brand-green-dark mt-3 text-3xl font-bold">
+              <h2 className="font-heading text-ink mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">
                 Nuestros Valores
               </h2>
             </div>
@@ -95,15 +95,15 @@ export default function SobreNosotrosPage() {
               {values.map(({ Icon, name, description, color, bg }, i) => (
                 <div
                   key={name}
-                  className="rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                  className="fungi-sticker rounded-2xl bg-white p-8"
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <div
-                    className={`mb-5 flex h-14 w-14 items-center justify-center rounded-full ${bg}`}
+                    className={`mb-5 flex h-14 w-14 items-center justify-center rounded-xl border-2 border-ink ${bg}`}
                   >
                     <Icon className={color} size={26} />
                   </div>
-                  <h3 className="text-brand-green-dark mb-3 text-lg font-semibold">{name}</h3>
+                  <h3 className="text-ink mb-3 font-heading text-lg font-bold">{name}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
                 </div>
               ))}

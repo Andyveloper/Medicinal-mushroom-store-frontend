@@ -79,10 +79,10 @@ export default function EnviosDevolucionesPage() {
             className={`transition-all duration-700 ease-out ${shippingInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
           >
             <div className="mb-8 flex items-center gap-3">
-              <div className="bg-emerald-100 flex h-10 w-10 items-center justify-center rounded-full">
-                <Package className="text-emerald-600" size={20} />
+              <div className="bg-magenta flex h-10 w-10 items-center justify-center rounded-xl border-2 border-ink">
+                <Package className="text-white" size={20} />
               </div>
-              <h2 className="font-heading text-brand-green-dark text-2xl font-bold">
+              <h2 className="font-heading text-ink text-2xl font-extrabold tracking-tight">
                 Política de Envíos
               </h2>
             </div>
@@ -101,17 +101,17 @@ export default function EnviosDevolucionesPage() {
             </div>
 
             {/* Zones table */}
-            <div className="overflow-hidden rounded-2xl border">
+            <div className="fungi-sticker overflow-hidden rounded-2xl">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ background: 'oklch(0.95 0.02 85)' }}>
-                    <th className="text-brand-green-dark px-5 py-3 text-left font-semibold">
+                  <tr className="bg-ink">
+                    <th className="fungi-kicker px-5 py-3 text-left text-xs text-mint">
                       Zona de entrega
                     </th>
-                    <th className="text-brand-green-dark px-5 py-3 text-left font-semibold">
+                    <th className="fungi-kicker px-5 py-3 text-left text-xs text-mint">
                       Tiempo estimado
                     </th>
-                    <th className="text-brand-green-dark px-5 py-3 text-left font-semibold">
+                    <th className="fungi-kicker px-5 py-3 text-left text-xs text-mint">
                       Costo
                     </th>
                   </tr>
@@ -147,28 +147,28 @@ export default function EnviosDevolucionesPage() {
             className={`transition-all duration-700 ease-out ${returnsInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
           >
             <div className="mb-8 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100">
-                <RotateCcw className="text-amber-600" size={20} />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-ink bg-mint">
+                <RotateCcw className="text-ink" size={20} />
               </div>
-              <h2 className="font-heading text-brand-green-dark text-2xl font-bold">
+              <h2 className="font-heading text-ink text-2xl font-extrabold tracking-tight">
                 Política de Devoluciones
               </h2>
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="text-brand-green-dark mb-3 font-semibold">¿Cuándo aplica?</h3>
+              <div className="fungi-sticker rounded-2xl bg-white p-6">
+                <h3 className="text-ink mb-3 font-heading font-bold">¿Cuándo aplica?</h3>
                 <ul className="text-muted-foreground space-y-2 text-sm">
                   <li className="flex gap-2">
-                    <span className="text-emerald-500 mt-0.5">✓</span>
+                    <span className="text-mint-deep mt-0.5 font-bold">✓</span>
                     Producto en mal estado o defectuoso al recibirlo
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-emerald-500 mt-0.5">✓</span>
+                    <span className="text-mint-deep mt-0.5 font-bold">✓</span>
                     Producto diferente al que ordenaste
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-emerald-500 mt-0.5">✓</span>
+                    <span className="text-mint-deep mt-0.5 font-bold">✓</span>
                     Pedido incompleto o con unidades faltantes
                   </li>
                   <li className="flex gap-2">
@@ -182,27 +182,33 @@ export default function EnviosDevolucionesPage() {
                 </ul>
               </div>
 
-              <div className="rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="text-brand-green-dark mb-3 font-semibold">¿Cómo hacerlo?</h3>
+              <div className="fungi-sticker rounded-2xl bg-white p-6">
+                <h3 className="text-ink mb-3 font-heading font-bold">¿Cómo hacerlo?</h3>
                 <ol className="text-muted-foreground space-y-3 text-sm">
                   <li className="flex gap-3">
-                    <span className="bg-brand-green text-primary-foreground flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    <span className="bg-magenta text-white flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-ink text-xs font-bold leading-none">
                       1
                     </span>
-                    Escribe a <strong className="text-foreground">hola@setasmedicinales.co</strong>{' '}
-                    con tu número de orden y fotos del producto.
+                    <span>
+                      Escribe a{' '}
+                      <strong className="text-foreground break-all">hola@setasmedicinales.co</strong>{' '}
+                      con tu número de orden y fotos del producto.
+                    </span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="bg-brand-green text-primary-foreground flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    <span className="bg-magenta text-white flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-ink text-xs font-bold leading-none">
                       2
                     </span>
-                    Nuestro equipo valida la solicitud en un plazo de 1–2 días hábiles.
+                    <span>Nuestro equipo valida la solicitud en un plazo de 1–2 días hábiles.</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="bg-brand-green text-primary-foreground flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    <span className="bg-magenta text-white flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-ink text-xs font-bold leading-none">
                       3
                     </span>
-                    Te enviamos el producto de reemplazo o hacemos el reembolso en 3–5 días hábiles.
+                    <span>
+                      Te enviamos el producto de reemplazo o hacemos el reembolso en 3–5 días
+                      hábiles.
+                    </span>
                   </li>
                 </ol>
               </div>
@@ -219,15 +225,15 @@ export default function EnviosDevolucionesPage() {
             className={`transition-all duration-700 ease-out ${faqInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
           >
             <div className="mb-10 text-center">
-              <span className="text-brand-green text-sm font-semibold uppercase tracking-widest">
+              <span className="fungi-kicker text-sm text-magenta">
                 Preguntas frecuentes
               </span>
-              <h2 className="font-heading text-brand-green-dark mt-3 text-3xl font-bold">
+              <h2 className="font-heading text-ink mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">
                 ¿Tienes dudas?
               </h2>
             </div>
 
-            <div className="rounded-2xl border bg-white px-6 shadow-sm">
+            <div className="fungi-sticker rounded-2xl bg-white px-6">
               {faqItems.map(({ question, answer }) => (
                 <FaqItem key={question} question={question} answer={answer} />
               ))}
@@ -237,7 +243,7 @@ export default function EnviosDevolucionesPage() {
               ¿No encontraste tu respuesta?{' '}
               <a
                 href="mailto:hola@setasmedicinales.co"
-                className="text-brand-green font-medium underline-offset-4 hover:underline"
+                className="text-magenta font-semibold underline-offset-4 hover:underline"
               >
                 Escríbenos directamente
               </a>
