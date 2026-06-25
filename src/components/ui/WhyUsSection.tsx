@@ -5,30 +5,34 @@ const benefits = [
   {
     Icon: Leaf,
     title: '100% Orgánico',
-    description: 'Cultivados sin pesticidas ni químicos. Solo procesos naturales que respetan el ecosistema.',
-    color: 'text-emerald-600',
-    bg: 'bg-emerald-50',
+    description:
+      'Cultivados sin pesticidas ni químicos. Solo procesos naturales que respetan el ecosistema.',
+    color: 'text-ink',
+    bg: 'bg-mint',
   },
   {
     Icon: Truck,
     title: 'Envío a todo Colombia',
-    description: 'Recibe tu pedido en 2–5 días hábiles. Empaque seguro y refrigerado para conservar frescura.',
-    color: 'text-amber-600',
-    bg: 'bg-amber-50',
+    description:
+      'Recibe tu pedido en 2–5 días hábiles. Empaque seguro y refrigerado para conservar frescura.',
+    color: 'text-white',
+    bg: 'bg-magenta',
   },
   {
     Icon: FlaskConical,
     title: 'Respaldado por ciencia',
-    description: 'Beneficios comprobados por estudios científicos. Cada producto con información nutricional completa.',
-    color: 'text-teal-600',
-    bg: 'bg-teal-50',
+    description:
+      'Beneficios comprobados por estudios científicos. Cada producto con información nutricional completa.',
+    color: 'text-mint',
+    bg: 'bg-ink',
   },
   {
     Icon: MessageCircle,
     title: 'Asesoría personalizada',
-    description: 'Te guiamos en el uso de cada producto según tu objetivo de bienestar y estilo de vida.',
-    color: 'text-violet-600',
-    bg: 'bg-violet-50',
+    description:
+      'Te guiamos en el uso de cada producto según tu objetivo de bienestar y estilo de vida.',
+    color: 'text-ink',
+    bg: 'bg-mint',
   },
 ]
 
@@ -43,10 +47,8 @@ export default function WhyUsSection() {
           className={`transition-all duration-700 ease-out ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
         >
           <div className="mb-14 text-center">
-            <span className="text-brand-green text-sm font-semibold uppercase tracking-widest">
-              Por qué somos diferentes
-            </span>
-            <h2 className="font-heading text-brand-green-dark mt-3 text-3xl font-bold md:text-4xl">
+            <span className="fungi-kicker text-magenta text-sm">Por qué somos diferentes</span>
+            <h2 className="font-heading text-ink mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">
               ¿Por qué elegirnos?
             </h2>
             <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-base">
@@ -54,17 +56,19 @@ export default function WhyUsSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map(({ Icon, title, description, color, bg }, i) => (
               <div
                 key={title}
-                className="rounded-2xl bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="fungi-sticker rounded-2xl bg-white p-6 text-center"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className={`mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full ${bg}`}>
+                <div
+                  className={`border-ink mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl border-2 ${bg}`}
+                >
                   <Icon className={`${color}`} size={26} />
                 </div>
-                <h3 className="text-brand-green-dark mb-2 text-base font-semibold">{title}</h3>
+                <h3 className="text-ink font-heading mb-2 text-lg font-bold">{title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
               </div>
             ))}

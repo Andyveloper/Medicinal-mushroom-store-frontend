@@ -8,7 +8,7 @@ const testimonials = [
     text: 'El Reishi cambió completamente mi calidad de sueño. Llevo 3 meses tomándolo y me siento más descansada y con energía. 100% recomendado.',
     rating: 5,
     initial: 'M',
-    accent: 'bg-emerald-600',
+    accent: 'bg-magenta',
   },
   {
     name: 'Carlos Rodríguez',
@@ -16,7 +16,7 @@ const testimonials = [
     text: 'El Lion\'s Mane me ha ayudado muchísimo con la concentración en el trabajo. La calidad del producto es excelente y el envío llegó muy rápido.',
     rating: 5,
     initial: 'C',
-    accent: 'bg-amber-600',
+    accent: 'bg-ink',
   },
   {
     name: 'Valentina Torres',
@@ -24,7 +24,7 @@ const testimonials = [
     text: 'Me encanta que sean orgánicos y cultivados en Colombia. La asesoría fue increíble, me orientaron perfectamente sobre qué hongo era mejor para mí.',
     rating: 5,
     initial: 'V',
-    accent: 'bg-teal-600',
+    accent: 'bg-mint-deep',
   },
 ]
 
@@ -32,26 +32,26 @@ export default function TestimonialsSection() {
   const { ref, inView } = useInView()
 
   return (
-    <section className="py-20" style={{ background: 'oklch(0.97 0.01 85)' }}>
+    <section className="bg-ink fungi-dots py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div
           ref={ref}
           className={`transition-all duration-700 ease-out ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
         >
           <div className="mb-14 text-center">
-            <span className="text-brand-green text-sm font-semibold uppercase tracking-widest">
+            <span className="fungi-kicker text-sm text-mint">
               Nuestros clientes hablan
             </span>
-            <h2 className="font-heading text-brand-green-dark mt-3 text-3xl font-bold md:text-4xl">
+            <h2 className="font-heading mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
               Lo que dicen de nosotros
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-7 md:grid-cols-3">
             {testimonials.map(({ name, city, text, rating, initial, accent }, i) => (
               <div
                 key={name}
-                className="rounded-2xl bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="fungi-sticker rounded-2xl bg-white p-7"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
                 {/* Stars */}
@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
                     <Star
                       key={idx}
                       size={16}
-                      className="fill-amber-400 text-amber-400"
+                      className="fill-magenta text-magenta"
                     />
                   ))}
                 </div>
@@ -73,12 +73,12 @@ export default function TestimonialsSection() {
                 {/* Author */}
                 <div className="flex items-center gap-3">
                   <div
-                    className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full ${accent} text-sm font-bold text-white`}
+                    className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-ink ${accent} text-sm font-bold text-white`}
                   >
                     {initial}
                   </div>
                   <div>
-                    <p className="text-brand-green-dark text-sm font-semibold">{name}</p>
+                    <p className="text-ink text-sm font-bold">{name}</p>
                     <p className="text-muted-foreground text-xs">{city}, Colombia</p>
                   </div>
                 </div>

@@ -38,10 +38,10 @@ export default function CatalogPage() {
             className={`transition-all duration-700 ease-out ${productsInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
           >
             <div className="mb-12 text-center">
-              <span className="text-brand-green text-sm font-semibold uppercase tracking-widest">
+              <span className="fungi-kicker text-sm text-magenta">
                 Catálogo
               </span>
-              <h2 className="font-heading text-brand-green-dark mt-3 text-3xl font-bold md:text-4xl">
+              <h2 className="font-heading text-ink mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">
                 Nuestros Productos
               </h2>
               <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-base">
@@ -56,7 +56,7 @@ export default function CatalogPage() {
             ) : (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {products.map((product) => (
-                  <Card key={product.id} className="flex flex-col">
+                  <Card key={product.id} className="fungi-sticker flex flex-col shadow-none ring-0">
                     {product.imageUrl && (
                       <img
                         src={product.imageUrl}
@@ -65,14 +65,17 @@ export default function CatalogPage() {
                       />
                     )}
                     <CardContent className="flex-1 pt-4">
-                      <div className="mb-2 flex items-start justify-between">
-                        <h2 className="text-lg font-semibold">{product.name}</h2>
-                        <Badge variant={product.stock > 0 ? 'default' : 'destructive'}>
+                      <div className="mb-2 flex items-start justify-between gap-2">
+                        <h2 className="font-heading text-lg font-bold leading-tight">{product.name}</h2>
+                        <Badge
+                          variant={product.stock > 0 ? 'secondary' : 'destructive'}
+                          className="shrink-0 border-2 border-ink"
+                        >
                           {product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
                         </Badge>
                       </div>
                       <p className="text-muted-foreground line-clamp-3 text-sm">{product.description}</p>
-                      <p className="mt-3 text-xl font-bold">${product.price.toLocaleString('es-CO')} COP</p>
+                      <p className="text-magenta mt-3 font-heading text-2xl font-extrabold">${product.price.toLocaleString('es-CO')} COP</p>
                     </CardContent>
                     <CardFooter className="gap-2">
                       <Button

@@ -47,16 +47,19 @@ export default function ProductDetailPage() {
           <img
             src={product.imageUrl}
             alt={product.name}
-            className="w-full rounded-lg object-cover"
+            className="fungi-sticker w-full rounded-2xl object-cover"
           />
         )}
         <div className="flex flex-col gap-4">
-          <h1 className="text-3xl font-bold">{product.name}</h1>
-          <Badge variant={product.stock > 0 ? 'default' : 'destructive'} className="w-fit">
+          <h1 className="font-heading text-4xl font-extrabold tracking-tight">{product.name}</h1>
+          <Badge
+            variant={product.stock > 0 ? 'secondary' : 'destructive'}
+            className="w-fit border-2 border-ink"
+          >
             {product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
           </Badge>
           <p className="text-muted-foreground">{product.description}</p>
-          <p className="text-3xl font-bold">${product.price.toLocaleString('es-CO')} COP</p>
+          <p className="text-magenta font-heading text-4xl font-extrabold">${product.price.toLocaleString('es-CO')} COP</p>
           <Button
             size="lg"
             disabled={product.stock === 0}
