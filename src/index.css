@@ -1,21 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/playfair-display";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: 'Playfair Display Variable', Georgia, serif;
-    --font-sans: 'Inter Variable', sans-serif;
+    --font-heading: 'Syne', system-ui, sans-serif;
+    --font-sans: 'Space Grotesk', system-ui, sans-serif;
 
-    /* Brand palette — earth tones / dark forest green */
-    --color-brand-green: oklch(0.40 0.14 143);
-    --color-brand-green-dark: oklch(0.26 0.10 143);
-    --color-brand-gold: oklch(0.82 0.13 82);
-    --color-brand-beige: oklch(0.96 0.02 85);
-    --color-brand-earth: oklch(0.50 0.09 55);
+    /* MR FUNGi — neon streetwear palette (from logo) */
+    --color-ink: #0b0b0f;
+    --color-ink-soft: #15151b;
+    --color-magenta: #f82888;
+    --color-magenta-deep: #b3155f;
+    --color-mint: #02e4b7;
+    --color-mint-deep: #06a586;
+    --color-paper: #f7f6f8;
+
+    /* Legacy brand-* tokens remapped so every page recolors on-brand */
+    --color-brand-green: #f82888;      /* eyebrows / accents → magenta */
+    --color-brand-green-dark: #0b0b0f; /* headings / wordmark → ink */
+    --color-brand-gold: #02e4b7;       /* highlight → mint */
+    --color-brand-beige: #f1ecf4;      /* soft section bg → pale lilac */
+    --color-brand-earth: #b3155f;      /* deep accent → magenta-deep */
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -57,30 +65,30 @@
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.38 0.13 143);
-    --primary-foreground: oklch(0.97 0.01 85);
-    --secondary: oklch(0.96 0.02 85);
-    --secondary-foreground: oklch(0.26 0.10 143);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.52 0 0);
-    --accent: oklch(0.93 0.03 80);
-    --accent-foreground: oklch(0.26 0.10 143);
+    --background: #f7f6f8;
+    --foreground: #0b0b0f;
+    --card: #ffffff;
+    --card-foreground: #0b0b0f;
+    --popover: #ffffff;
+    --popover-foreground: #0b0b0f;
+    --primary: #f82888;
+    --primary-foreground: #ffffff;
+    --secondary: #02e4b7;
+    --secondary-foreground: #06231d;
+    --muted: #efedf2;
+    --muted-foreground: #5c5b66;
+    --accent: #fce3ef;
+    --accent-foreground: #b3155f;
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.92 0.01 85);
-    --input: oklch(0.92 0.01 85);
-    --ring: oklch(0.38 0.13 143);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
+    --border: #e6e3ec;
+    --input: #e6e3ec;
+    --ring: #f82888;
+    --chart-1: #f82888;
+    --chart-2: #02e4b7;
+    --chart-3: #b3155f;
+    --chart-4: #06a586;
+    --chart-5: #0b0b0f;
+    --radius: 0.5rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
     --sidebar-primary: oklch(0.205 0 0);
@@ -136,4 +144,78 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
+  ::selection {
+    background: var(--color-magenta);
+    color: #fff;
+  }
+}
+
+/* ── MR FUNGi signature utilities ─────────────────────────── */
+
+/* Sticker: hard offset shadow + ink border, like a pasted decal */
+.fungi-sticker {
+  border: 2px solid var(--color-ink);
+  box-shadow: 5px 5px 0 0 var(--color-ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.fungi-sticker:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 0 var(--color-magenta);
+}
+
+/* Neon glow for the logo / display type on dark */
+.fungi-neon {
+  filter: drop-shadow(0 0 14px rgba(248, 40, 136, 0.55))
+          drop-shadow(0 0 34px rgba(2, 228, 183, 0.28));
+}
+.fungi-text-glow {
+  text-shadow: 0 0 18px rgba(248, 40, 136, 0.45),
+               0 0 40px rgba(2, 228, 183, 0.2);
+}
+
+/* Spray-can gradient text for headlines */
+.fungi-gradient-text {
+  background: linear-gradient(100deg, var(--color-magenta) 0%, var(--color-mint) 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow tag — mono-ish kicker used across sections */
+.fungi-kicker {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Scrolling marquee ticker — the brand's "merch drop" strip */
+.fungi-marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 0;
+}
+.fungi-marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1.25rem;
+  min-width: 100%;
+  padding-right: 1.25rem;
+  animation: fungi-scroll 28s linear infinite;
+}
+@keyframes fungi-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* Subtle dotted grid for dark sections (spore field) */
+.fungi-dots {
+  background-image: radial-gradient(rgba(2, 228, 183, 0.16) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fungi-marquee__track { animation: none; }
 }
