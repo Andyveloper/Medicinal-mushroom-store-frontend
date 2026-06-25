@@ -2,7 +2,7 @@
 
 ## Proyecto
 
-Tienda en línea de hongos medicinales. Frontend SPA — el backend corre separado en `http://localhost:8080/api`.
+Tienda en línea de hongos medicinales, con identidad de marca **Mr Fungi** (estética urbana/streetwear neón). Frontend SPA — el backend corre separado en `http://localhost:8080/api`.
 
 ## Comandos
 
@@ -19,6 +19,17 @@ pnpm lint       # ESLint
 - **Componentes shadcn**: instalar con `pnpm dlx shadcn@latest add <componente>` — van a `src/components/ui/`
 - **Gestión de paquetes**: solo `pnpm`, nunca `npm` ni `yarn`
 - **Estilos**: Tailwind CSS v4, sin CSS-in-JS ni módulos CSS
+
+## Identidad visual (Mr Fungi)
+
+Definida en `src/index.css` (`@theme`). El logo está en `public/mr-fungi-logo.png` (fondo transparente, uso general) y `public/mr-fungi-logo-dark.png`.
+
+- **Paleta**: `--color-ink` `#0b0b0f` · `--color-magenta` `#f82888` · `--color-mint` `#02e4b7` · paper `#f7f6f8`. En shadcn, `--primary` = magenta, `--secondary` = mint.
+- **Tokens `brand-*`**: remapeados a la nueva paleta (no eliminar) para que las páginas recoloreen solas — nunca reintroducir verde.
+- **Tipografía**: Syne (display, `--font-heading`) + Space Grotesk (cuerpo, `--font-sans`), vía `@import` de Google Fonts.
+- **Utilidades de marca** (en `index.css`): `.fungi-sticker` (borde ink + sombra dura desplazada), `.fungi-neon`, `.fungi-marquee`, `.fungi-dots`, `.fungi-kicker`, `.fungi-gradient-text`.
+- Un `border`/`border-2` sin color es gris por defecto (base layer); usar `border-ink` explícito para el look sticker.
+- Marcos oscuros (nav/hero/footer) enmarcan contenido claro y legible.
 
 ## Arquitectura
 
