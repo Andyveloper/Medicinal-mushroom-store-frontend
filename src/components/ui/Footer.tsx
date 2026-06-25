@@ -23,16 +23,13 @@ const WhatsAppIcon = () => (
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'oklch(0.15 0.06 143)' }} className="text-white/80">
+    <footer className="bg-ink fungi-dots text-white/80">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link
-              to="/"
-              className="font-heading inline-flex items-center gap-2 text-xl font-bold text-white"
-            >
-              🍄 Setas Medicinales
+            <Link to="/" aria-label="MR FUNGi — inicio" className="inline-flex">
+              <img src="/mr-fungi-logo.png" alt="MR FUNGi" className="fungi-neon h-20 w-auto" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
               Hongos medicinales cultivados de forma orgánica en Colombia. Bienestar natural con
@@ -42,21 +39,21 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white/15 text-white/70 transition-colors hover:border-magenta hover:bg-magenta hover:text-white"
               >
                 <InstagramIcon />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white/15 text-white/70 transition-colors hover:border-magenta hover:bg-magenta hover:text-white"
               >
                 <FacebookIcon />
               </a>
               <a
                 href="#"
                 aria-label="WhatsApp"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white/15 text-white/70 transition-colors hover:border-mint hover:bg-mint hover:text-ink"
               >
                 <WhatsAppIcon />
               </a>
@@ -65,7 +62,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h4 className="mb-5 text-sm font-semibold tracking-widest text-white uppercase">
+            <h4 className="mb-5 fungi-kicker text-sm text-mint">
               Productos
             </h4>
             <ul className="space-y-3 text-sm">
@@ -81,7 +78,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="mb-5 text-sm font-semibold tracking-widest text-white uppercase">
+            <h4 className="mb-5 fungi-kicker text-sm text-mint">
               Empresa
             </h4>
             <ul className="space-y-3 text-sm">
@@ -100,7 +97,7 @@ export default function Footer() {
 
           {/* Contact & Legal */}
           <div>
-            <h4 className="mb-5 text-sm font-semibold tracking-widest text-white uppercase">
+            <h4 className="mb-5 fungi-kicker text-sm text-mint">
               Contacto
             </h4>
             <ul className="space-y-3 text-sm">

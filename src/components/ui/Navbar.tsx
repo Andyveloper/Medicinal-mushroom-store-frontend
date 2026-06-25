@@ -33,27 +33,27 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'sticky top-0 z-50 border-b transition-all duration-300',
+        'sticky top-0 z-50 h-20 border-b border-white/10 text-white transition-all duration-300',
         scrolled
-          ? 'bg-background/95 shadow-md backdrop-blur-sm'
-          : 'bg-background shadow-none',
+          ? 'bg-ink/95 shadow-[0_2px_0_0_var(--color-magenta)] backdrop-blur-md'
+          : 'bg-ink shadow-none'
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="font-heading text-brand-green-dark text-xl font-bold tracking-tight">
-          🍄 Setas Medicinales
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
+        <Link to="/" aria-label="MR FUNGi — inicio" className="flex items-center">
+          <img src="/mr-fungi-logo.png" alt="MR FUNGi" className="fungi-neon w-mt-auto mt-2 h-20" />
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {isAuthenticated ? (
             <>
-              <span className="text-muted-foreground flex items-center gap-1 text-sm">
-                <User size={16} />
+              <span className="hidden items-center gap-1 text-sm text-white/70 sm:flex">
+                <User size={16} className="text-mint" />
                 {user?.email}
               </span>
               <Link to="/cart">
-                <Button variant="outline" size="sm" className="relative">
-                  <ShoppingCart size={16} />
+                <Button variant="outline" size="sm" className="relative border-none bg-[#02E4B7]">
+                  <ShoppingCart size={16} className="text-black" />
                   {itemCount > 0 && (
                     <span className="bg-primary text-primary-foreground absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold">
                       {itemCount}
@@ -64,7 +64,7 @@ export default function Navbar() {
               {user?.role === UserRole.ADMIN && (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" className="border-none bg-[#f82888]">
                       Admin
                       <ChevronDown size={14} />
                     </Button>

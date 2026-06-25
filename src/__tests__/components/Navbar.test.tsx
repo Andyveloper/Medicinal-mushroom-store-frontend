@@ -129,7 +129,7 @@ describe('Navbar', () => {
 
   it('renders the brand link to home', () => {
     renderNavbar()
-    expect(screen.getByRole('link', { name: /setas medicinales/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /mr fungi/i })).toBeInTheDocument()
   })
 
   it('renders authenticated nav without user info when user is null', () => {
